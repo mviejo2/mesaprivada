@@ -1,0 +1,39 @@
+{
+  "empresa": "MESA PRIVADA",
+  "slogan": "CATERING EXPERIENCE",
+  "contactos": [
+    {
+      "nombre": "Bárbara Benites",
+      "ubicacion": "Perú 🇵🇪",
+      "telefonos": [
+        {
+          "numero": "+51944707043",
+          "tipo": "Teléfono"
+        }
+      ],
+      "whatsapp": "+51944707043",
+      "nota": "Teléfono y WhatsApp"
+    },
+    {
+      "nombre": "Matías Viejo",
+      "ubicacion": "Perú 🇵🇪",
+      "telefonos": [
+        {
+          "numero": "+51967790216",
+          "tipo": "Teléfono"
+        }
+      ]
+    },
+    {
+      "nombre": "Matías Viejo",
+      "ubicacion": "Chile 🇨🇱",
+      "telefonos": [
+        {
+          "numero": "+56982050318",
+          "tipo": "WhatsApp"
+        }
+      ],
+      "nota": "Solo WhatsApp"
+    }
+  ]
+}
