@@ -122,7 +122,114 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        /* CONTACTOS DESPLEGABLES POR PAÍS */
+        .contactos-hero {
+            margin-top: 40px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contacto-pais-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contacto-pais-item:last-child {
+            border-bottom: none;
+        }
+
+        .contacto-pais-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .contacto-pais-header:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contacto-pais-nombre {
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+
+        .contacto-pais-header i {
+            color: var(--gold);
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .contacto-pais-item.active .contacto-pais-header i {
+            transform: rotate(180deg);
+        }
+
+        .contactos-pais-detalles {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 20px 16px;
+            animation: slideDown 0.3s ease;
+        }
+
+        .contacto-persona {
+            padding: 12px;
+            background: rgba(211, 47, 47, 0.1);
+            border: 1px solid rgba(211, 47, 47, 0.2);
+            border-radius: 8px;
+        }
+
+        .persona-nombre {
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .persona-contactos {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .persona-link {
+            padding: 8px;
+            background: rgba(211, 47, 47, 0.2);
+            border: 1px solid rgba(211, 47, 47, 0.3);
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .persona-link:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 500px;
+            }
         }
 
         .btn {
@@ -697,6 +804,52 @@
                 </a>
             </div>
 
+            <!-- CONTACTOS POR PAÍS -->
+            <div class="contactos-hero">
+                <!-- PERÚ -->
+                <div class="contacto-pais-item">
+                    <div class="contacto-pais-header" onclick="togglePais(this)">
+                        <div class="contacto-pais-nombre">🇵🇪 Perú</div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="contactos-pais-detalles" style="display: none;">
+                        <!-- Bárbara -->
+                        <div class="contacto-persona">
+                            <div class="persona-nombre">Bárbara Benites</div>
+                            <div class="persona-contactos">
+                                <a href="tel:+51944707043" class="persona-link">☎️ +51944707043</a>
+                                <a href="https://wa.me/51944707043" class="persona-link" target="_blank">💬 WhatsApp</a>
+                            </div>
+                        </div>
+                        <!-- Matías Perú -->
+                        <div class="contacto-persona">
+                            <div class="persona-nombre">Matías Viejo</div>
+                            <div class="persona-contactos">
+                                <a href="tel:+51967790216" class="persona-link">☎️ +51967790216</a>
+                                <a href="https://wa.me/51967790216" class="persona-link" target="_blank">💬 WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CHILE -->
+                <div class="contacto-pais-item">
+                    <div class="contacto-pais-header" onclick="togglePais(this)">
+                        <div class="contacto-pais-nombre">🇨🇱 Chile</div>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="contactos-pais-detalles" style="display: none;">
+                        <!-- Matías Chile -->
+                        <div class="contacto-persona">
+                            <div class="persona-nombre">Matías Viejo</div>
+                            <div class="persona-contactos">
+                                <a href="https://wa.me/56982050318" class="persona-link" target="_blank">💬 +56982050318 (WhatsApp)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <p style="color: #bbb; font-size: 14px; margin-top: 40px;">
                 Experiencias desde <strong>S/ 80.00 ó USD $24</strong> • Perú & Chile
             </p>
@@ -902,6 +1055,10 @@
                 <button type="submit" class="btn-cotizar">
                     <i class="fas fa-paper-plane"></i> Enviar Cotización
                 </button>
+
+                <button type="button" class="btn-cotizar" style="background: var(--gold); margin-top: 10px;" onclick="saveContact()">
+                    <i class="fas fa-address-book"></i> Guardar Contactos
+                </button>
                 
                 <a href="https://wa.me/56982050318?text=Hola!%20Quiero%20cotizar%20un%20evento%20privado" class="btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i> O Contactar por WhatsApp
@@ -938,6 +1095,25 @@
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Toggle contactos por país
+        function togglePais(header) {
+            const item = header.parentElement;
+            const detalles = header.nextElementSibling;
+            const isOpen = item.classList.contains('active');
+            
+            // Cerrar todos
+            document.querySelectorAll('.contacto-pais-item').forEach(el => {
+                el.classList.remove('active');
+                el.querySelector('.contactos-pais-detalles').style.display = 'none';
+            });
+            
+            // Abrir el clickeado
+            if (!isOpen) {
+                item.classList.add('active');
+                detalles.style.display = 'flex';
+            }
         }
 
         // Manejador de opciones
@@ -1016,6 +1192,51 @@
                 loader.classList.remove('active');
             }
         });
+
+        // Función para guardar TODOS los contactos
+        function saveContact() {
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Mesa Privada - Experiencias Gourmet
+ORG:Mesa Privada
+NOTE:Experiencias Gastronómicas Premium - Perú & Chile
+URL:https://mviejo2.github.io/mesaprivada/mesa-privada-landing.html
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Bárbara Benites
+TEL;TYPE=CELL:+51944707043
+TEL;TYPE=WORK:+51944707043
+ORG:Mesa Privada
+CATEGORIES:Perú
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Matías Viejo (Perú)
+TEL;TYPE=CELL:+51967790216
+ORG:Mesa Privada
+CATEGORIES:Perú
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Matías Viejo (Chile)
+TEL;TYPE=CELL:+56982050318
+NOTE:Solo WhatsApp
+ORG:Mesa Privada
+CATEGORIES:Chile
+END:VCARD`;
+
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mesa-privada-contactos.vcf';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
 
         // Scroll animations
         const observerOptions = {
