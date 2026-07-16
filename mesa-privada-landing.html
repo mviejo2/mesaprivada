@@ -80,12 +80,14 @@
         }
 
         .hero-content img {
-            max-width: 300px;
+            max-width: 380px;
             width: 100%;
             height: auto;
             margin-bottom: 30px;
             animation: fadeInScale 0.8s ease-out;
             filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
 
         @keyframes fadeInScale {
